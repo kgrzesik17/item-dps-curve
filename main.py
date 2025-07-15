@@ -3,7 +3,7 @@
 import random
 
 ad = 100
-attack_speed = 1.0
+attack_speed = 15
 crit_chance = 50
 crit_damage = 1.75  # 2.15 with IE 
 
@@ -20,7 +20,21 @@ def hit(ad, crit_chance, crit_damage):
     else:
           return ad 
 
-print(hit(ad, crit_chance, crit_damage))
+dps = float(hit(ad, crit_chance, crit_damage)) * attack_speed
+
+def average_damage(ad, crit_chance, crit_damage, amount = 5000):
+    full = 0
+
+    for i in range(amount):
+        full += hit(ad, crit_chance, crit_damage)
+
+    output = full / amount
+
+    return output
+
+print(average_damage(ad, crit_chance, crit_damage))
+
+
 # xpoints = np.array([1, 3, 1, 8])
 # ypoints = np.array([3, 10, -2, 14])
 
