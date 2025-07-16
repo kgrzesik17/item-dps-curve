@@ -1,11 +1,19 @@
 # import matplotlib.pyplot as plt
 # import numpy as np
 import random
+from Champion import *
+from Item import *
+from items import *
 
-ad = 100
-attack_speed = 15
-crit_chance = 50
-crit_damage = 1.75  # 2.15 with IE 
+dps_list = []
+items_checked = [berserkers_greaves]
+
+caitlyn = Champion("Caitlyn", 1, [], 27, 4.7, 30, 1.3, 60, 3.8, 1.75, 0.681, 0.04, 0.625)
+
+ad = caitlyn.ad
+attack_speed = caitlyn.attack_speed
+crit_chance = caitlyn.crit_chance
+crit_damage = caitlyn.crit_damage
 
 def is_crit(crit_chance):
         if random.randrange(0, 100) < crit_chance:
@@ -20,8 +28,6 @@ def hit(ad, crit_chance, crit_damage):
     else:
           return ad 
 
-dps = float(hit(ad, crit_chance, crit_damage)) * attack_speed
-
 def average_damage(ad, crit_chance, crit_damage, amount = 5000):
     full = 0
 
@@ -32,8 +38,9 @@ def average_damage(ad, crit_chance, crit_damage, amount = 5000):
 
     return output
 
-print(average_damage(ad, crit_chance, crit_damage))
+dps = average_damage(ad, crit_chance, crit_damage) * attack_speed
 
+print(dps)
 
 # xpoints = np.array([1, 3, 1, 8])
 # ypoints = np.array([3, 10, -2, 14])
