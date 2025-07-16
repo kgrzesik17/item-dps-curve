@@ -6,9 +6,15 @@ from Item import *
 from items import *
 
 dps_list = []
-items_checked = [berserkers_greaves]
+items_to_check = [berserkers_greaves, rapid_firecannon, yun_tal_wildarrows, lord_dominiks_regards, infinity_edge]
 
-caitlyn = Champion("Caitlyn", 1, [], 27, 4.7, 30, 1.3, 60, 3.8, 1.75, 0.681, 0.04, 0.625)
+for i in items_to_check:
+    current_items = []
+
+
+caitlyn = Champion("Caitlyn", 18, [], 27, 4.7, 30, 1.3, 60, 3.8, 1.75, 0.681, 0.04, 0.625)
+
+print(caitlyn.crit_damage)
 
 ad = caitlyn.ad
 attack_speed = caitlyn.attack_speed
