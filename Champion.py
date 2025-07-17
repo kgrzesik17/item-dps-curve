@@ -10,6 +10,7 @@ class Champion:
        self.crit_damage = crit_damage
        self.bonus_attack_speed = bonus_attack_speed * (self.level - 1)
        self.crit_chance = 0
+       self.armor_penetration_percentage = 0
        
        for item in items:
            self.ad += item.ad
@@ -18,6 +19,8 @@ class Champion:
            self.armor += item.armor
            self.mr += item.mr
            self.crit_chance += item.crit_chance
+           self.armor_penetration_percentage += item.armor_penetration_percentage 
 
        self.attack_speed = as_ratio * self.bonus_attack_speed + base_attack_speed
        self.items = items
+
